@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "320816979944",
+    "firebase_url": "https://selfbilling-7bbab.firebaseio.com",
+    "project_id": "selfbilling-7bbab",
+    "storage_bucket": "selfbilling-7bbab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320816979944:android:5decb4cf15ee32bb3e8e5d",
+        "android_client_info": {
+          "package_name": "com.example.self_billing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "320816979944-vcht9a02ej0mt8snh4hgipsb55t33db7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.self_billing",
+            "certificate_hash": "9b1b2e0a217bbaf710d021820ef4436c75ed6610"
+          }
+        },
+        {
+          "client_id": "320816979944-lt8d0v7na23ac8fsret6lkrvl1uocqmh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtjjXxnz5qeutksgGIo9XM7gJEMMNmTeQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "320816979944-lt8d0v7na23ac8fsret6lkrvl1uocqmh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
