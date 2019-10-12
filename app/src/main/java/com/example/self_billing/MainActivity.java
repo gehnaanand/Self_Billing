@@ -24,10 +24,12 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private ProgressBar progressBar;
     private Button buttonLogin,store_login;
-    private TextView textviewRegister, textviewForgot;
+    private TextView textviewRegister,textviewForgot;
 
     RelativeLayout relativeLayout1;
     AnimationDrawable animationDrawable;
+
+    //public TextView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         textviewRegister = findViewById(R.id.tvRegister);
         textviewForgot = findViewById(R.id.tvForgot);
         progressBar = findViewById(R.id.progressBar);
-        store_login=findViewById(R.id.btnStore_owner);
+        store_login=findViewById(R.id.btnStore_Store_Details_Class);
 
 
         //Get Firebase auth instance
@@ -114,14 +116,8 @@ public class MainActivity extends AppCompatActivity {
         textviewRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Register_user.class));
+                startActivity(new Intent(MainActivity.this, RegisterUser.class));
             }
         });
-
-
     }
-
-
-
-
 }

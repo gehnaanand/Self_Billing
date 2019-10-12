@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/animation_list_2"
+    tools:context=".Add_Item">
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Add Item"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/pacifico"
+        android:textSize="40dp"
+        android:textColor="#fff"/>
+
+    <EditText
+        android:id="@+id/etCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etItemName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Price"
+        android:layout_alignLeft="@+id/etItemName"
+        android:layout_alignRight="@+id/etItemName"
+        android:textColorHint="#fff"
+        android:inputType="textEmailAddress"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/etItemName"
+        android:layout_below="@id/etCost"
+        android:layout_marginTop="20dp"
+        android:layout_toLeftOf="@+id/btnScan"
+        android:textColor="#ffffff"
+        android:ems="10"
+        android:textSize="19dp"
+        android:text="Scanned text"
+        android:id="@+id/tvScannedID"/>
+
+    <ImageButton
+        android:id="@+id/btnScan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etCost"
+        android:layout_alignRight="@+id/etItemName"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_scan"
+        android:background="#000000"
+        />
+
+    <EditText
+        android:id="@+id/etItemName"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="70dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textview"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:textColorHint="#fff"
+        android:inputType="textPersonName"
+        android:hint="Item Name"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tvScannedID"
+        android:layout_marginTop="40dp"
+        android:text="Add Item"
+        android:background="@drawable/round_button"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:layout_alignLeft="@id/etItemName"
+        android:layout_alignRight="@id/etItemName"
+        />
+
+</RelativeLayout>

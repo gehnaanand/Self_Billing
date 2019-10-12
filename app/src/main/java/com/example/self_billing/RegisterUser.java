@@ -20,7 +20,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Register_user extends AppCompatActivity {
+public class RegisterUser extends AppCompatActivity {
+
     private EditText mail, password, cpassword;
     private Button registerButton;
     private FirebaseAuth firebaseAuth;
@@ -33,7 +34,7 @@ public class Register_user extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_register_user);
 
         relativeLayout=(RelativeLayout)findViewById(R.id.relativeLayout);
         animationDrawable=(AnimationDrawable)relativeLayout.getBackground();
@@ -60,36 +61,36 @@ public class Register_user extends AppCompatActivity {
 
                 if (TextUtils.isEmpty(mailStr) && TextUtils.isEmpty(passwordStr)){
                     progressBar.setVisibility(View.GONE);
-                    Toast.makeText(Register_user.this, "Enter Email and Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterUser.this, "Enter Email and Password", Toast.LENGTH_SHORT).show();
                 }
                 else if(TextUtils.isEmpty(mailStr)){
                     progressBar.setVisibility(View.GONE);
                     mail.setError("Enter Email");
                     return;
-                    //Toast.makeText(Register_user.this, "Enter Email", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(RegisterUser.this, "Enter Email", Toast.LENGTH_SHORT).show();
                 } else if (TextUtils.isEmpty(passwordStr)){
                     progressBar.setVisibility(View.GONE);
-                    Toast.makeText(Register_user.this, "Enter Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterUser.this, "Enter Password", Toast.LENGTH_SHORT).show();
                 } else if(TextUtils.isEmpty(cpasswordStr)){
                     progressBar.setVisibility(View.GONE);
-                    Toast.makeText(Register_user.this, "Confirm Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterUser.this, "Confirm Password", Toast.LENGTH_SHORT).show();
                 }else if(!password.getText().toString().equals(cpassword.getText().toString())){
                     progressBar.setVisibility(View.GONE);
-                    Toast.makeText(Register_user.this, "Password does not match", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterUser.this, "Password does not match", Toast.LENGTH_SHORT).show();
                 } else if(passwordStr.length() < 6){
                     progressBar.setVisibility(View.GONE);
-                    Toast.makeText(Register_user.this, "Password must be minimum 6 characters!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterUser.this, "Password must be minimum 6 characters!", Toast.LENGTH_SHORT).show();
                 } else {
                     firebaseAuth.createUserWithEmailAndPassword(mailStr, passwordStr).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 progressBar.setVisibility(View.VISIBLE);
-                                Toast.makeText(Register_user.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(Register_user.this, MainActivity.class));
+                                Toast.makeText(RegisterUser.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(RegisterUser.this, MainActivity.class));
                             } else {
                                 progressBar.setVisibility(View.GONE);
-                                Toast.makeText(Register_user.this, "Registration Failed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterUser.this, "Registration Failed", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

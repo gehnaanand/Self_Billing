@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.self_billing">
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -14,7 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Store_grid"></activity>
+        <activity android:name=".Store_Register"></activity>
+        <activity android:name=".Store_Login" />
+        <activity android:name=".Add_Item" />
+        <activity android:name=".RegisterUser" />
+        <activity android:name=".Store_grid" />
         <activity android:name=".Scanner" />
         <activity android:name=".MainActivity">
             <intent-filter>
