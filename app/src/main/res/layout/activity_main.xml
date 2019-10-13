@@ -98,7 +98,7 @@
         />
 
     <Button
-        android:id="@+id/btnStore_Store_Details_Class"
+        android:id="@+id/btnStoreOwner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView5"
@@ -107,7 +107,7 @@
         android:textStyle="bold"
         android:layout_marginLeft="20dp"
         android:background="@drawable/round_button"
-        android:text="log in as store Store_Details_Class"
+        android:text="log in as Store owner"
         android:textColor="#ffffff" />
 
     <TextView

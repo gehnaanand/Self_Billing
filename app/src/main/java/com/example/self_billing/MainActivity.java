@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         textviewRegister = findViewById(R.id.tvRegister);
         textviewForgot = findViewById(R.id.tvForgot);
         progressBar = findViewById(R.id.progressBar);
-        store_login=findViewById(R.id.btnStore_Store_Details_Class);
+        store_login=findViewById(R.id.btnStoreOwner);
 
 
         //Get Firebase auth instance
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
                         } else {
                             Toast.makeText(MainActivity.this, "Logged In Successfully", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(MainActivity.this, Store_grid.class);
+                            Intent intent = new Intent(MainActivity.this, Add_Item.class);
                             startActivity(intent);
 
                         }
@@ -119,5 +119,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, RegisterUser.class));
             }
         });
+
+        store_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Store_Login.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

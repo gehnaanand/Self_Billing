@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
@@ -28,15 +29,15 @@ public class Store_Register extends AppCompatActivity {
     ProgressBar progressBar;
     FirebaseAuth auth;
 
-    ScrollView scrollView;
+    RelativeLayout relativeLayout;
     AnimationDrawable animationDrawable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store__register);
 
-        scrollView=(ScrollView) findViewById(R.id.scrollView);
-        animationDrawable=(AnimationDrawable)scrollView.getBackground();
+        relativeLayout=(RelativeLayout) findViewById(R.id.relativeLayout);
+        animationDrawable=(AnimationDrawable)relativeLayout.getBackground();
         animationDrawable.setEnterFadeDuration(2000);
         animationDrawable.setExitFadeDuration(2000);
         animationDrawable.start();
@@ -101,10 +102,10 @@ public class Store_Register extends AppCompatActivity {
                             } else {
 
                                 Store_Class store_class = new Store_Class(store_name_str,phone_str,email_str);
-                                DatabaseReference ref= FirebaseDatabase.getInstance().getReference("Store_Details");
-                                DatabaseReference childref=ref.child(store_name_str).push();
+                                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Store_Details");
+                                DatabaseReference childref = ref.child(store_name_str).push();
                                 childref.setValue(store_class);
-                                Intent intent=new Intent(Store_Register.this, Add_Item.class);
+                                Intent intent = new Intent(Store_Register.this, Store_Login.class);
                                 intent.putExtra("Store Name",store_name_str);
                                 startActivity(intent);
                                 finish();

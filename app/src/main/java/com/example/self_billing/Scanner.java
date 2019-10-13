@@ -130,7 +130,11 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                scannerView.resumeCameraPreview(Scanner.this);
+                //scannerView.resumeCameraPreview(Scanner.this);
+                Intent intent = new Intent();
+                intent.putExtra("Result",myResult);
+                setResult(RESULT_OK,intent);
+                startActivity(intent);
             }
         });
         builder.setNeutralButton("Visit", new DialogInterface.OnClickListener() {
@@ -143,5 +147,9 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
         builder.setMessage(result.getText());
         AlertDialog alert1 = builder.create();
         alert1.show();
+
+        Intent intent = new Intent();
+        intent.putExtra("Result",myResult);
+        setResult(RESULT_OK,intent);
     }
 }

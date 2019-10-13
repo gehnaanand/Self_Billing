@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/relativeLayout"
     android:orientation="vertical"
     android:background="@drawable/animation_list_2"
     tools:context=".Store_Register">

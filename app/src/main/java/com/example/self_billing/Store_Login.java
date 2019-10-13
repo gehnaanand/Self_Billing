@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Store_Login extends AppCompatActivity {
 
     private EditText email, password,store_name;
-    TextView register;
+    private TextView register;
     private ProgressBar progressBar;
     Button login;
 
