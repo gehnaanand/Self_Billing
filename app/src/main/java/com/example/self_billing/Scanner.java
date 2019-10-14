@@ -121,7 +121,7 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
 
     @Override
     public void handleResult(Result result) {
-        final String myResult = result.getText();
+        final String myResult = result.getText().toString();
         Log.d("QRCodeScanner", result.getText());
         Log.d("QRCodeScanner", result.getBarcodeFormat().toString());
 
@@ -134,7 +134,8 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
                 Intent intent = new Intent();
                 intent.putExtra("Result",myResult);
                 setResult(RESULT_OK,intent);
-                startActivity(intent);
+                //startActivity(intent);
+                finish();
             }
         });
         builder.setNeutralButton("Visit", new DialogInterface.OnClickListener() {
@@ -148,8 +149,8 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
         AlertDialog alert1 = builder.create();
         alert1.show();
 
-        Intent intent = new Intent();
+        /*Intent intent = new Intent();
         intent.putExtra("Result",myResult);
-        setResult(RESULT_OK,intent);
+        setResult(RESULT_OK,intent);*/
     }
 }

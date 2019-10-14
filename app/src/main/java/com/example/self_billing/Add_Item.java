@@ -36,9 +36,7 @@ public class Add_Item extends AppCompatActivity {
             {
                 String scannedTextResult = data.getStringExtra("Result");
                 scannedText = findViewById(R.id.tvScannedID);
-                scannedText.setText(scannedTextResult);
-
-
+                scannedText.setText("" + scannedTextResult);
             }
         }
     }

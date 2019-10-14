@@ -43,7 +43,7 @@
         android:textColor="#ffffff"
         android:ems="10"
         android:textSize="19dp"
-        android:text="Scanned text"
+        android:text=""
         android:id="@+id/tvScannedID"/>
 
     <ImageButton
