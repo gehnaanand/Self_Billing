@@ -1,24 +1,24 @@
 package com.example.self_billing;
 
 public class Item_Details_Class {
-    String B_ID, Name;
+    String Barcode_ID, Name;
     int cost;
 
     public Item_Details_Class() {
     }
 
-    public Item_Details_Class(String b_ID, String name, int cost) {
-        B_ID = b_ID;
-        Name = name;
-        this.cost = cost;
+    public Item_Details_Class(String BarcodeID, String Name, int Cost) {
+        this.Barcode_ID = BarcodeID;
+        this.Name = Name;
+        this.cost = Cost;
     }
 
-    public String getB_ID() {
-        return B_ID;
+    public String getBarcodeID() {
+        return Barcode_ID;
     }
 
-    public void setB_ID(String b_ID) {
-        B_ID = b_ID;
+    public void setBarcodeID(String BarcodeID) {
+        Barcode_ID = BarcodeID;
     }
 
     public String getName() {

@@ -20,6 +20,20 @@
         android:textColor="#fff"/>
 
     <EditText
+        android:id="@+id/etItemName"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="70dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textview"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:textColorHint="#fff"
+        android:inputType="textPersonName"
+        android:hint="Item Name"
+        />
+
+    <EditText
         android:id="@+id/etCost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,13 +57,13 @@
         android:textColor="#ffffff"
         android:ems="10"
         android:textSize="19dp"
-        android:text=""
+        android:text="Scan Item"
         android:id="@+id/tvScannedID"/>
 
     <ImageButton
         android:id="@+id/btnScan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_below="@+id/etCost"
         android:layout_alignRight="@+id/etItemName"
         android:layout_marginTop="20dp"
@@ -57,21 +71,8 @@
         android:background="#000000"
         />
 
-    <EditText
-        android:id="@+id/etItemName"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="70dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/textview"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:textColorHint="#fff"
-        android:inputType="textPersonName"
-        android:hint="Item Name"
-        />
-
     <Button
+        android:id="@+id/btnAddItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
