@@ -20,6 +20,7 @@ public class Add_Item extends AppCompatActivity {
     private EditText itemName, cost;
     String strItemName,scannedTextResult;
     int intCost;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +58,6 @@ public class Add_Item extends AppCompatActivity {
                 Toast.makeText(Add_Item.this, "Added Item Successfully!!", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 
     @Override
