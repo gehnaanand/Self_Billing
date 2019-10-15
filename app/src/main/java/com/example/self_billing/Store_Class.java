@@ -9,6 +9,9 @@ public class Store_Class {
         Store_Email = store_Email;
     }
 
+    public Store_Class() {
+    }
+
     public String getStore_Name() {
         return Store_Name;
     }
