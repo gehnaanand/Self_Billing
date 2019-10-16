@@ -79,14 +79,7 @@ public class Billing extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for(DataSnapshot ds :dataSnapshot.getChildren()){
                             Item = ds.getValue(Item_Details_Class.class);
-
-                            //Log.d(" ", owner1.getBrand().toString());
-                            //String parentref=ds.getRef().getParent().getKey();
-                            //Log.d("Parent= ",parentref);
-                            //Log.d("Name = ",ds.child("name").getValue().toString());
                             if(scannedTextResult.equals(Item.getBarcodeID())) {
-                                // list.add(" " + owner1.getBrand().toString());
-                                //Log.d("Name = ",ds.child("name").getValue().toString());
                                 ItemNameList.add(" " + Item.getName());
                                 QuantityList.add(1);
                                 CostList.add(Item.getCost());
