@@ -97,6 +97,8 @@ public class Billing extends AppCompatActivity {
                         listView.setAdapter(adapter);
                         if(ItemNameList.isEmpty()){
                             ItemNameList.add("Nothing");
+                            QuantityList.add(100);
+                            CostList.add(-100);
                         }
                     }
 
@@ -111,12 +113,13 @@ public class Billing extends AppCompatActivity {
     }
 
     private class MyListAdapter extends ArrayAdapter<String> {
-        String phone;
+        private ArrayList<String> itemNameList;
         private int layout;
         private ArrayList<Integer> costList,priceList;
         public MyListAdapter(@NonNull Context context, int resource, ArrayList<String> list, ArrayList<Integer> list1, ArrayList<Integer> list2) {
             super(context, resource,list);
             layout=resource;
+            itemNameList = list;
             costList = list1;
             priceList = list2;
         }
@@ -126,7 +129,7 @@ public class Billing extends AppCompatActivity {
         public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
             ViewHolder mainViewHolder = null;
 
-            if(convertView==null){
+            if(convertView == null){
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 convertView = inflater.inflate(layout,parent,false);
                 final ViewHolder viewHolder = new ViewHolder();
@@ -137,6 +140,8 @@ public class Billing extends AppCompatActivity {
                 viewHolder.tvCost = convertView.findViewById(R.id.tvCost);
 
                 viewHolder.tvItemName.setText(getItem(position));
+                viewHolder.tvCost.setText(getItem(position));
+                viewHolder.tvQuantity.setText(getItem(position));
                 viewHolder.plusButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
