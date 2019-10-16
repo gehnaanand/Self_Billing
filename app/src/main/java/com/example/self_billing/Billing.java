@@ -63,7 +63,7 @@ public class Billing extends AppCompatActivity {
                 FirebaseDatabase database;
                 DatabaseReference ref;
                 database=FirebaseDatabase.getInstance();
-                ref=database.getReference("Store 1");
+                ref=database.getReference("Store_Items/Store 1");
 
                 final ArrayList<String> ItemNameList = new ArrayList<>();
                 final ArrayList<Integer> QuantityList = new ArrayList<>();
@@ -71,12 +71,15 @@ public class Billing extends AppCompatActivity {
 
                 final MyListAdapter adapter = new MyListAdapter(Billing.this,R.layout.custom_listview,ItemNameList,QuantityList,CostList);
                 //final ListAdapter adapter=new ArrayAdapter<String>(Stores_Available.this,android.R.layout.simple_list_item_1,list);
+
                 ref.addValueEventListener(new ValueEventListener() {
                     Item_Details_Class Item = new Item_Details_Class();
+
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        for(DataSnapshot ds :dataSnapshot.getChildren()) {
+                        for(DataSnapshot ds :dataSnapshot.getChildren()){
                             Item = ds.getValue(Item_Details_Class.class);
+
                             //Log.d(" ", owner1.getBrand().toString());
                             //String parentref=ds.getRef().getParent().getKey();
                             //Log.d("Parent= ",parentref);
