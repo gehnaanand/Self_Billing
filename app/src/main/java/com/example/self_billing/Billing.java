@@ -79,6 +79,7 @@ public class Billing extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for(DataSnapshot ds :dataSnapshot.getChildren()){
                             Item = ds.getValue(Item_Details_Class.class);
+
                             if(scannedTextResult.equals(Item.getBarcodeID())) {
                                 ItemNameList.add(" " + Item.getName());
                                 QuantityList.add(1);
@@ -121,8 +122,11 @@ public class Billing extends AppCompatActivity {
         @Override
         public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
             ViewHolder mainViewHolder = null;
+            Toast.makeText(getApplicationContext(), " View  "+ convertView, Toast.LENGTH_SHORT).show();
 
             if(convertView==null){
+                Toast.makeText(getApplicationContext(), " IFFFFF   "+ getItem(position), Toast.LENGTH_SHORT).show();
+
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 convertView = inflater.inflate(layout,parent,false);
                 final ViewHolder viewHolder = new ViewHolder();
@@ -160,6 +164,7 @@ public class Billing extends AppCompatActivity {
                 convertView.setTag(viewHolder);
             }
             else {
+                Toast.makeText(getApplicationContext(), " ELSEEE   "+ getItem(position), Toast.LENGTH_SHORT).show();
                 mainViewHolder = (ViewHolder)convertView.getTag();
                 mainViewHolder.tvItemName.setText(getItem(position));
                 mainViewHolder.tvQuantity.setText(getItem(position));
