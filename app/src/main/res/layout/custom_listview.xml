@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="textview"
+        android:id="@+id/tvItemName"
+        android:gravity="center"
+        android:layout_alignTop="@+id/btnMinus"
+        android:layout_alignBottom="@+id/btnMinus"
+        />
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="-"
+        android:id="@+id/btnMinus"
+        android:layout_toRightOf="@+id/tvItemName"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:layout_alignTop="@+id/btnMinus"
+        android:padding="20dp"
+        android:layout_toRightOf="@+id/btnMinus"
+        android:layout_alignBottom="@+id/btnMinus"
+        android:id="@+id/tvQuantity"/>
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="+"
+        android:id="@+id/btnPlus"
+        android:layout_alignBottom="@+id/btnMinus"
+        android:layout_toRightOf="@+id/tvQuantity"
+        />
+
+    <TextView
+        android:id="@+id/tvCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/btnPlus"
+        android:text="price"
+        android:layout_alignTop="@+id/btnMinus"
+        android:layout_alignBottom="@+id/btnPlus"
+        android:gravity="center"/>
+
+
+</RelativeLayout>

@@ -138,11 +138,10 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
                 finish();
             }
         });
-        builder.setNeutralButton("Visit", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(myResult));
-                startActivity(browserIntent);
+
             }
         });
         builder.setMessage(result.getText());

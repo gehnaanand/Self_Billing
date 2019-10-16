@@ -54,17 +54,11 @@ public class Store_grid extends AppCompatActivity{
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                Log.d("kidi","a;kdvaklkadflkandka");
-                Toast.makeText(getApplicationContext(),  "" + dataSnapshot, Toast.LENGTH_LONG).show();
-
                 for (DataSnapshot i: dataSnapshot.getChildren()) {
-                    for (DataSnapshot snapshot_store: i.getChildren()
-                         ) {
+                    for (DataSnapshot snapshot_store: i.getChildren()) {
                         Store_Class store = snapshot_store.getValue(Store_Class.class);
                         Stores.add(store.getStore_Name());
                         setAdapter();
-                        Toast.makeText(getApplicationContext(),  "     Store :"+store.getStore_Name() + "   email: "+ store.getStore_Email(), Toast.LENGTH_LONG).show();
-
                     }
                 }
           }
@@ -72,19 +66,8 @@ public class Store_grid extends AppCompatActivity{
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 System.out.println("The read failed: " + databaseError.getCode());
-                Toast.makeText(getApplicationContext(), "On Cancelled ",Toast.LENGTH_LONG).show();
-
             }
         });
-
-//        Stores.addAll("Store1","Store2","Store3","Store4","Store5","Store6","Store7","Store8","Store9","Store10","Store11","Store12","Store13","Store14");
-/*        Stores.add("Store7");
-        Stores.add("Store8");
-        Stores.add("Store9");
-        Stores.add("Store6");
-        Stores.add("Store4");
-*/
-        Toast.makeText(getApplicationContext(),"Final : "+ Stores, Toast.LENGTH_LONG).show();
         setAdapter();
     }
 
