@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
                         } else {
                             Toast.makeText(MainActivity.this, "Logged In Successfully", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(MainActivity.this, Add_Item.class);
+                            Intent intent = new Intent(MainActivity.this, Store_grid.class);
                             startActivity(intent);
 
                         }
