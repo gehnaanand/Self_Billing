@@ -80,13 +80,13 @@ public class Billing extends AppCompatActivity {
                             //Log.d(" ", owner1.getBrand().toString());
                             //String parentref=ds.getRef().getParent().getKey();
                             //Log.d("Parent= ",parentref);
-                            Log.d("Name = ",ds.child("name").getValue().toString());
-                            if(scannedTextResult.toLowerCase().toString().trim().equals(Item.getBarcodeID().toLowerCase().toString().trim())) {
+                            //Log.d("Name = ",ds.child("name").getValue().toString());
+                            if(scannedTextResult.equals(Item.getBarcodeID())) {
                                 // list.add(" " + owner1.getBrand().toString());
-                                Log.d("Name = ",ds.child("name").getValue().toString());
-                                ItemNameList.add(" " + ds.child("name").getValue().toString());
+                                //Log.d("Name = ",ds.child("name").getValue().toString());
+                                ItemNameList.add(" " + Item.getName());
                                 QuantityList.add(1);
-                                CostList.add(Integer.parseInt(ds.child("cost").getValue().toString()));
+                                CostList.add(Item.getCost());
                                 break;
                             }
                             else{
@@ -96,7 +96,7 @@ public class Billing extends AppCompatActivity {
                         }
                         listView.setAdapter(adapter);
                         if(ItemNameList.isEmpty()){
-                            ItemNameList.add("Not available in any stores!");
+                            ItemNameList.add("Nothing");
                         }
                     }
 

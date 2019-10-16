@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="textview"
         android:id="@+id/tvItemName"
@@ -14,7 +14,7 @@
         android:layout_alignBottom="@+id/btnMinus"
         />
     <Button
-        android:layout_width="50dp"
+        android:layout_width="40dp"
         android:layout_height="50dp"
         android:text="-"
         android:id="@+id/btnMinus"
@@ -31,7 +31,7 @@
         android:layout_alignBottom="@+id/btnMinus"
         android:id="@+id/tvQuantity"/>
     <Button
-        android:layout_width="50dp"
+        android:layout_width="40dp"
         android:layout_height="50dp"
         android:text="+"
         android:id="@+id/btnPlus"
