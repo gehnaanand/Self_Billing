@@ -30,6 +30,12 @@ public class Billing extends AppCompatActivity {
     private Button Scan,GenerateBill;
     private ListView listView;
     private String scannedTextResult;
+    private TextView tvTotal;
+
+    final ArrayList<String> ItemNameList = new ArrayList<>();
+    final ArrayList<Integer> QuantityList = new ArrayList<>();
+    final  ArrayList<Integer> CostList = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +57,6 @@ public class Billing extends AppCompatActivity {
         Intent intent = getIntent();
         String store_name = intent.getStringExtra("Store Name");
 
-
     }
 
     @Override
@@ -65,12 +70,7 @@ public class Billing extends AppCompatActivity {
                 database=FirebaseDatabase.getInstance();
                 ref=database.getReference("Store_Items/Store 1");
 
-                final ArrayList<String> ItemNameList = new ArrayList<>();
-                final ArrayList<Integer> QuantityList = new ArrayList<>();
-                final  ArrayList<Integer> CostList = new ArrayList<>();
-
                 final MyListAdapter adapter = new MyListAdapter(Billing.this,R.layout.custom_listview,ItemNameList,QuantityList,CostList);
-                //final ListAdapter adapter=new ArrayAdapter<String>(Stores_Available.this,android.R.layout.simple_list_item_1,list);
 
                 ref.addValueEventListener(new ValueEventListener() {
                     Item_Details_Class Item = new Item_Details_Class();
@@ -84,6 +84,11 @@ public class Billing extends AppCompatActivity {
                                 ItemNameList.add(" " + Item.getName());
                                 QuantityList.add(1);
                                 CostList.add(Item.getCost());
+                                int total = 0;
+                                for(int i=0;i<CostList.size();i++)
+                                    total +=CostList.get(i)*QuantityList.get(i);
+                                tvTotal = findViewById(R.id.tvTotal);
+                                tvTotal.setText("Total = " + total);
                                 break;
                             }
                             else{
@@ -110,23 +115,22 @@ public class Billing extends AppCompatActivity {
     private class MyListAdapter extends ArrayAdapter<String> {
         String phone;
         private int layout;
-        private ArrayList<Integer> costList,priceList;
-        public MyListAdapter(@NonNull Context context, int resource, ArrayList<String> list, ArrayList<Integer> list1, ArrayList<Integer> list2) {
+        private ArrayList<Integer> costList,qtyList;
+        private  ArrayList<String> ItemNames;
+        public MyListAdapter(@NonNull Context context, int resource, ArrayList<String> list, ArrayList<Integer> qty, ArrayList<Integer> cost) {
             super(context, resource,list);
             layout=resource;
-            costList = list1;
-            priceList = list2;
+            ItemNames = list;
+            costList = cost;
+            qtyList = qty;
         }
 
         @NonNull
         @Override
         public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
             ViewHolder mainViewHolder = null;
-            Toast.makeText(getApplicationContext(), " View  "+ convertView, Toast.LENGTH_SHORT).show();
 
             if(convertView==null){
-                Toast.makeText(getApplicationContext(), " IFFFFF   "+ getItem(position), Toast.LENGTH_SHORT).show();
-
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 convertView = inflater.inflate(layout,parent,false);
                 final ViewHolder viewHolder = new ViewHolder();
@@ -137,18 +141,23 @@ public class Billing extends AppCompatActivity {
                 viewHolder.tvCost = convertView.findViewById(R.id.tvCost);
 
                 viewHolder.tvItemName.setText(getItem(position));
+                viewHolder.tvCost.setText((qtyList.get(position)*costList.get(position) )+ " ");
+                viewHolder.tvQuantity.setText(qtyList.get(position).toString());
+
                 viewHolder.plusButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        //Intent intent=new Intent(Stores_Available.this,MapsActivity.class);
-                        //String store_name=(String)getItem(position);
-                        //Toast.makeText(Billing.this, ""+getItem(position), Toast.LENGTH_SHORT).show();
-                        //intent.putExtra("Store Name",store_name);
-                        //go to maps activity
-                        //startActivity(intent);
                         Integer qty = Integer.parseInt(viewHolder.tvQuantity.getText().toString());
                         qty++;
+                        qtyList.set(position,qty);
                         viewHolder.tvQuantity.setText(qty.toString());
+                        viewHolder.tvCost.setText((qty*costList.get(position)) + "");
+                        int total = 0;
+                        for(int i=0;i<CostList.size();i++)
+                            total +=CostList.get(i)*QuantityList.get(i);
+                        tvTotal = findViewById(R.id.tvTotal);
+                        tvTotal.setText("Total = " + total);
+
                     }
                 });
 
@@ -158,20 +167,26 @@ public class Billing extends AppCompatActivity {
                         Integer qty = Integer.parseInt(viewHolder.tvQuantity.getText().toString());
                         if(qty!= 0)
                             qty--;
+                        qtyList.set(position,qty);
                         viewHolder.tvQuantity.setText(qty.toString());
+                        viewHolder.tvCost.setText((qty*costList.get(position)) + "");
+                        int total = 0;
+                        for(int i=0;i<CostList.size();i++)
+                            total +=CostList.get(i)*QuantityList.get(i);
+                        tvTotal = findViewById(R.id.tvTotal);
+                        tvTotal.setText("Total = " + total);
+
                     }
                 });
                 convertView.setTag(viewHolder);
             }
             else {
-                Toast.makeText(getApplicationContext(), " ELSEEE   "+ getItem(position), Toast.LENGTH_SHORT).show();
                 mainViewHolder = (ViewHolder)convertView.getTag();
-                mainViewHolder.tvItemName.setText(getItem(position));
-                mainViewHolder.tvQuantity.setText(getItem(position));
-                mainViewHolder.tvCost.setText(getItem(position));
+                mainViewHolder.tvItemName.setText(ItemNames.get(position).toString());
+                mainViewHolder.tvQuantity.setText(qtyList.get(position).toString());
+                mainViewHolder.tvCost.setText((qtyList.get(position)*costList.get(position) )+ " ");
             }
             return convertView;
-            //return super.getView(position, convertView, parent);
         }
     }
     public class ViewHolder{

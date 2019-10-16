@@ -26,7 +26,8 @@
         android:layout_height="wrap_content"
         android:text="1"
         android:layout_alignTop="@+id/btnMinus"
-        android:padding="20dp"
+        android:padding="10dp"
+        android:gravity="center"
         android:layout_toRightOf="@+id/btnMinus"
         android:layout_alignBottom="@+id/btnMinus"
         android:id="@+id/tvQuantity"/>

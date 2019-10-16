@@ -30,5 +30,11 @@
         android:layout_centerHorizontal="true"
         android:text="Generate Bill"
         android:layout_marginTop="20dp"/>
+    <TextView
+        android:id="@+id/tvTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/btnScan"
+        android:layout_below="@id/listview"/>
 
 </RelativeLayout>
