@@ -6,14 +6,6 @@
     tools:context=".Store_grid"
     android:background="@drawable/animation_list_2">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="318dp" />
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvStores"
         android:scrollbars="vertical"
