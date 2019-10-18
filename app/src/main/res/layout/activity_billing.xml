@@ -39,5 +39,11 @@
         android:layout_centerHorizontal="true"
         android:text="Go to Payment"
         android:layout_marginTop="20dp"/>
+    <TextView
+        android:id="@+id/tvTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/btnScan"
+        android:layout_below="@id/listview"/>
 
 </RelativeLayout>
