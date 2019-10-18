@@ -3,21 +3,37 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:orientation="horizontal"
+        card_view:cardCornerRadius="5dp"
+        card_view:cardElevation="5dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
         android:text="textview"
         android:id="@+id/tvItemName"
         android:gravity="center"
-        android:layout_alignTop="@+id/btnMinus"
-        android:layout_alignBottom="@+id/btnMinus"
+        android:layout_weight="4"
+
         />
     <Button
-        android:layout_width="40dp"
-        android:layout_height="50dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:text="-"
         android:id="@+id/btnMinus"
+        android:layout_weight="0.2"
+        android:background="@drawable/button_border"
+        android:textColor="#000"
         android:layout_toRightOf="@+id/tvItemName"
         />
 
@@ -28,14 +44,19 @@
         android:layout_alignTop="@+id/btnMinus"
         android:padding="10dp"
         android:gravity="center"
-        android:layout_toRightOf="@+id/btnMinus"
-        android:layout_alignBottom="@+id/btnMinus"
+        android:layout_weight="1"
+        android:textColor="#000"
+        android:layout_toRightOf="@+id/tvItemName"
+        android:layout_alignBottom="@+id/tvItemName"
         android:id="@+id/tvQuantity"/>
     <Button
-        android:layout_width="40dp"
-        android:layout_height="50dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:text="+"
         android:id="@+id/btnPlus"
+        android:layout_weight="0.2"
+        android:background="@drawable/button_border"
+        android:textColor="#000"
         android:layout_alignBottom="@+id/btnMinus"
         android:layout_toRightOf="@+id/tvQuantity"
         />
@@ -46,9 +67,12 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/btnPlus"
         android:text="price"
-        android:layout_alignTop="@+id/btnMinus"
-        android:layout_alignBottom="@+id/btnPlus"
+        android:layout_weight="1"
+        android:textColor="#000"
+        android:layout_alignTop="@+id/tvItemName"
+        android:layout_alignBottom="@+id/tvItemName"
         android:gravity="center"/>
 
-
+    </LinearLayout>
+    </android.support.v7.widget.CardView>
 </RelativeLayout>

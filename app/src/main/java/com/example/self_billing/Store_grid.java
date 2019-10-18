@@ -72,7 +72,7 @@ public class Store_grid extends AppCompatActivity{
     void setAdapter(){
         RecyclerView myrv = findViewById(R.id.rvStores);
         RecyclerViewAdapter myAdapter = new RecyclerViewAdapter(this, Stores);
-        myrv.setLayoutManager(new GridLayoutManager(this,3));
+        myrv.setLayoutManager(new GridLayoutManager(this,2));
         myrv.setAdapter(myAdapter);
     }
 
