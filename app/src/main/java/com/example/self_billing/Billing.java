@@ -203,11 +203,19 @@ public class Billing extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Integer qty = Integer.parseInt(viewHolder.tvQuantity.getText().toString());
-                        if(qty!= 0)
+                        if(qty==1) {
+                            qtyList.remove(position);
+                            costList.remove(position);
+                            ItemNames.remove(position);
+                            //listView.removeViewAt(position);
+                        }
+                        //if(qty!= 1)
+                        else {
                             qty--;
-                        qtyList.set(position,qty);
-                        viewHolder.tvQuantity.setText(qty.toString());
-                        viewHolder.tvCost.setText((qty*costList.get(position)) + "");
+                            qtyList.set(position, qty);
+                            viewHolder.tvQuantity.setText(qty.toString());
+                            viewHolder.tvCost.setText((qty * costList.get(position)) + "");
+                        }
                         int total = 0;
                         for(int i=0;i<CostList.size();i++)
                             total +=CostList.get(i)*QuantityList.get(i);

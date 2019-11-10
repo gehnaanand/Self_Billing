@@ -95,8 +95,6 @@ public class Store_grid extends AppCompatActivity{
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
 }
 
 
