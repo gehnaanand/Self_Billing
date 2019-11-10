@@ -207,6 +207,7 @@ public class Billing extends AppCompatActivity {
                             qtyList.remove(position);
                             costList.remove(position);
                             ItemNames.remove(position);
+                            notifyDataSetChanged();
                             //listView.removeViewAt(position);
                         }
                         //if(qty!= 1)
