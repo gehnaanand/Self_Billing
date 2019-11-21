@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -49,10 +50,22 @@ public class Add_Item extends AppCompatActivity {
                 strItemName = itemName.getText().toString();
                 intCost = Integer.parseInt(cost.getText().toString());
 
+                if (strItemName.equals("")) {
+                    itemName.setError("Enter the name of the item");
+                    return;
+                }
+                if (cost.getText().toString().equals("")) {
+                    cost.setError("Enter the cost of the item");
+                    return;
+                }
+                if (scannedText.getText().toString().equals("Scan Item")) {
+                    scannedText.setError("Incorrect Barcode ID ");
+                    return;
+                }
                 Intent intent = getIntent();
                 String store_name_str = intent.getStringExtra("Store Name");
 
-                Item_Details_Class item = new Item_Details_Class(scannedTextResult,strItemName,intCost);
+                Item_Details_Class item = new Item_Details_Class(scannedTextResult, strItemName, intCost);
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Store_Items");
                 DatabaseReference childref = ref.child(store_name_str).push();
                 childref.setValue(item);
@@ -60,6 +73,7 @@ public class Add_Item extends AppCompatActivity {
                 cost.setText("");
                 scannedText.setText("Scan Item");
                 Toast.makeText(Add_Item.this, "Added Item Successfully!!", Toast.LENGTH_SHORT).show();
+
             }
         });
     }

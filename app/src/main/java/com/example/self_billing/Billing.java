@@ -64,26 +64,30 @@ public class Billing extends AppCompatActivity {
         Payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String GOOGLE_PAY_PACKAGE_NAME = "com.google.android.apps.nbu.paisa.user";
-                GOOGLE_PAY_REQUEST_CODE = 123;
+                if(listView.getCount()==0)
+                    Toast.makeText(Billing.this, "The cart is empty", Toast.LENGTH_SHORT).show();
+                else {
+                    String GOOGLE_PAY_PACKAGE_NAME = "com.google.android.apps.nbu.paisa.user";
+                    GOOGLE_PAY_REQUEST_CODE = 123;
 
-                Uri uri =
-                        new Uri.Builder()
-                                .scheme("upi")
-                                .authority("pay")
-                                .appendQueryParameter("pa", "test@axisbank")
-                                .appendQueryParameter("pn", "Test Merchant")
-                                .appendQueryParameter("mc", "1234")
-                                .appendQueryParameter("tr", "123456789")
-                                .appendQueryParameter("tn", "test transaction note")
-                                .appendQueryParameter("am", total.toString() )
-                                .appendQueryParameter("cu", "INR")
-                                .appendQueryParameter("url", "https://test.merchant.website")
-                                .build();
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(uri);
-                intent.setPackage(GOOGLE_PAY_PACKAGE_NAME);
-                startActivityForResult(intent, GOOGLE_PAY_REQUEST_CODE);
+                    Uri uri =
+                            new Uri.Builder()
+                                    .scheme("upi")
+                                    .authority("pay")
+                                    .appendQueryParameter("pa", "test@axisbank")
+                                    .appendQueryParameter("pn", "Test Merchant")
+                                    .appendQueryParameter("mc", "1234")
+                                    .appendQueryParameter("tr", "123456789")
+                                    .appendQueryParameter("tn", "test transaction note")
+                                    .appendQueryParameter("am", total.toString())
+                                    .appendQueryParameter("cu", "INR")
+                                    .appendQueryParameter("url", "https://test.merchant.website")
+                                    .build();
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(uri);
+                    intent.setPackage(GOOGLE_PAY_PACKAGE_NAME);
+                    startActivityForResult(intent, GOOGLE_PAY_REQUEST_CODE);
+                }
             }
         });
 
